@@ -35,7 +35,7 @@ export default function DashboardPage() {
           onToggleTheme={toggleTheme}
         />
         <main className="dash-content">
-          <Dashboard />
+        <Dashboard />
         </main>
       </div>
     </div>
