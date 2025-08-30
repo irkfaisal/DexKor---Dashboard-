@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Stats from "./Stats/Stats.jsx";
+import '../../Styles/Common.css';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <>
+      <Stats />
+    </>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

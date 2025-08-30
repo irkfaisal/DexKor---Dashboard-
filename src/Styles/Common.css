@@ -277,6 +277,17 @@ body {
   background: var(--primary-hover-state);
 }
 
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
 /* --- Stats Cards --- */
 .stats-grid {
   display: grid;
@@ -284,7 +295,6 @@ body {
   gap: var(--spacing-lg);
 }
 .stats-card {
-  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--shape-corner-xl);
   box-shadow: var(--shadow-elevation-1);
@@ -292,15 +302,33 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  height: 120px;
 }
 .stats-label {
   font-size: var(--font-size-body-medium);
-  color: var(--muted);
+  color: #1d2433;
 }
 .stats-value {
   font-size: var(--font-size-headline-large);
   font-weight: 700;
   line-height: 1.2;
+}
+
+.tone-info {
+  background: rgba(47, 111, 237, 0.12);
+  color: var(--primary);
+}
+.tone-danger {
+  background: rgba(229, 72, 77, 0.12);
+  color: var(--danger);
+}
+.tone-warning {
+  background: rgba(237, 184, 74, 0.15);
+  color: var(--warning);
+}
+.tone-success {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
 }
 
 /* --- Tabs & Filters --- */

@@ -13,7 +13,7 @@ export const sidebar = [
 ];
 
 
-export const demoCounts = [
+export const counts = [
     { id: "pending", label: "Pending Tasks", value: 60, tone: "info" },
     { id: "overdue", label: "Overdue Tasks", value: 56, tone: "danger" },
     { id: "today", label: "Due For Today", value: 0, tone: "warning" },
