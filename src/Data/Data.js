@@ -1,15 +1,15 @@
 export const sidebar = [
-    { id: "my-task", label: "My Task", icon: "🔔" },
-    { id: "my-inbox", label: "My Inbox", icon: "🔔" },
-    { id: "insight360", label: "Insight360", icon: "🔔" },
-    { id: "dashboard", label: "Dashboard", icon: "🔔" },
-    { id: "payment", label: "Payment", icon: "🔔" },
-    { id: "contract", label: "Contract", icon: "🔔" },
-    { id: "opportunity", label: "Opportunity", icon: "🔔" },
-    { id: "customers", label: "Customers", icon: "🔔" },
-    { id: "health", label: "Health", icon: "🔔" },
-    { id: "nps", label: "NPS", icon: "🔔" },
-    { id: "tickets", label: "Tickets", icon: "🔔" },
+    { id: "my-task", label: "My Task", icon: "📝" },
+    { id: "my-inbox", label: "My Inbox", icon: "📥" },
+    { id: "insight360", label: "Insight360", icon: "📊" },
+    { id: "dashboard", label: "Dashboard", icon: "🖥️" },
+    { id: "payment", label: "Payment", icon: "💳" },
+    { id: "contract", label: "Contract", icon: "📄" },
+    { id: "opportunity", label: "Opportunity", icon: "🚀" },
+    { id: "customers", label: "Customers", icon: "👥" },
+    { id: "health", label: "Health", icon: "🏥" },
+    { id: "nps", label: "NPS", icon: "📈" },
+    { id: "tickets", label: "Tickets", icon: "🎫" },
 ];
 
 
@@ -25,7 +25,7 @@ export const counts = [
     },
 ];
 
-export const demoTasks = [
+export const tasks = [
     // A tiny sample; you can replace with data from your API
     {
         id: "TS-0465",
@@ -56,5 +56,35 @@ export const demoTasks = [
         priority: "Medium",
         type: "Health Impact",
         description: "enabled",
+    },
+    {
+        id: "TS-7512",
+        customerName: "TechCorp",
+        customerCode: "TC-8765",
+        title: "Database Backup Issue",
+        status: "In Progress",
+        priority: "High",
+        type: "System",
+        description: "Daily backup job is failing on production database",
+    },
+    {
+        id: "TS-9124",
+        customerName: "GreenWorld",
+        customerCode: "GW-4521",
+        title: "Website Performance Audit",
+        status: "Open",
+        priority: "Low",
+        type: "Performance",
+        description: "Customer requested performance testing on their website",
+    },
+    {
+        id: "TS-8237",
+        customerName: "BuildIt",
+        customerCode: "BI-3342",
+        title: "New Feature Request - Dashboard",
+        status: "Pending",
+        priority: "Medium",
+        type: "Enhancement",
+        description: "Client requested a new dashboard feature for reporting",
     },
 ];
