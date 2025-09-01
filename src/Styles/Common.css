@@ -193,6 +193,71 @@ body {
   opacity: 0.5;
 }
 
+.sidebar-views {
+  margin-top: auto;
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border);
+}
+
+.views-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-radius: var(--shape-corner-medium);
+  color: var(--text);
+  font-family: inherit; /* Inherit font from the body */
+  font-size: var(--font-size-body-large); /* 16px */
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.views-toggle:hover {
+  background-color: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.views-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.chev {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  color: var(--muted);
+}
+
+.views-toggle.active .chev {
+  transform: rotate(90deg);
+}
+
+.views-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: var(--spacing-sm); /* 8px space above the list */
+  display: grid;
+  gap: var(--spacing-xs); /* 4px space between links */
+}
+
+.view-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--shape-corner-medium);
+  color: var(--text);
+  font-size: var(--font-size-body-medium); /* 14px */
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.view-link:hover {
+  background-color: color-mix(in srgb, var(--text) 8%, transparent);
+}
 /* --- Main Content Area --- */
 .dash-main {
   display: grid;
@@ -397,12 +462,15 @@ body {
 
 .btn-base:hover::after {
   opacity: var(--md-sys-state-hover-layer);
+  color: white !important;
 }
 .btn-base:focus-visible::after {
   opacity: var(--md-sys-state-focus-layer);
+  color: white !important;
 }
 .btn-base:active::after {
   opacity: var(--md-sys-state-pressed-layer);
+  color: white !important;
 }
 .btn-base:focus-visible {
   outline: none;
@@ -420,9 +488,11 @@ body {
 }
 .btn-outlined:hover {
   background-color: color-mix(in srgb, var(--md-sys-primary) 8%, transparent);
+  color: white !important;
 }
 .btn-outlined:focus-visible {
   border-color: var(--md-sys-primary);
+  color: white !important;
 }
 
 .btn-icon {
@@ -554,14 +624,78 @@ body {
 }
 
 /* --- Popovers & Menus --- */
-.popover,
-.actions-menu .menu {
+.actions-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px); /* Position below the button with a 4px gap */
+  right: 0;
+  z-index: 10;
+
+  min-width: 180px;
+  padding: var(--spacing-sm); /* 8px */
+
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: var(--shape-corner-medium);
+  border-radius: var(--shape-corner-medium); /* 8px */
   box-shadow: var(--shadow-elevation-2);
-  padding: var(--spacing-sm);
-  z-index: 10;
+
+  display: grid;
+  gap: var(--spacing-xs);
+  animation: fadeIn 0.15s ease-out;
+}
+
+.menu-item {
+  width: 100%;
+  padding: 10px 12px;
+
+  background: transparent;
+  border: none;
+  border-radius: 4px; /* A smaller radius for items inside the menu */
+
+  color: var(--text);
+  font-family: inherit;
+  font-size: var(--font-size-body-medium); /* 14px */
+  text-align: left;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.menu-item:focus-visible {
+  background-color: color-mix(in srgb, var(--text) 12%, transparent);
+  outline: none;
+}
+
+.menu-item.danger {
+  color: var(--danger);
+}
+
+.menu-item.danger:hover {
+  background-color: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+
+.menu-item.danger:focus-visible {
+  background-color: color-mix(in srgb, var(--danger) 15%, transparent);
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
