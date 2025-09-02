@@ -1,4 +1,3 @@
-import "./App.css";
 import DashboardLayout from "./Layout/DashboardLayout";
 
 function App() {
