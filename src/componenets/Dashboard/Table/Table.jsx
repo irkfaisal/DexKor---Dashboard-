@@ -4,6 +4,14 @@ import StatusBadge from "./cell/StatusBadge";
 import Action from "./cell/Action";
 import { tasks } from "../../../Data/Data";
 import TaskModal from "./TableModal/TableModal";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+} from "../../Aceternity/AnimatedModal";
+import TableModal from "./TableModal/TableModal";
 
 export default function Table() {
   const [selected, setSelected] = useState({}); // id -> boolean
@@ -74,12 +82,13 @@ export default function Table() {
               {/* <td>{t.type}</td> */}
               <td className="muted">{t.description}</td>
               <td>
-                <button
-                  onClick={() => handleOpenTableModal(t)}
-                  className="icon-btn"
-                >
-                  ↗️
-                </button>
+                <Modal>
+                  <ModalTrigger>
+                    <button className="icon-btn">↗️</button>
+                  </ModalTrigger>
+
+                  <TableModal />
+                </Modal>
               </td>
               <td>
                 <Action />
@@ -88,13 +97,7 @@ export default function Table() {
           ))}
         </tbody>
       </table>
-      {openModal && (
-        <TaskModal
-          openModal={openModal}
-          onClose={() => setOpenModal(false)}
-          modalData={modalData}
-        />
-      )}
+      {openModal && <TaskModal modalData={modalData} />}
     </div>
   );
 }

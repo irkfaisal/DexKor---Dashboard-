@@ -1,70 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./TableModal.css";
+import {
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+} from "../../../Aceternity/AnimatedModal";
 
-export default function TaskModal({ openModal, onClose, modalData }) {
+export default function TableModal({ modalData }) {
   const [activeTab, setActiveTab] = useState("description");
-  const dialogRef = useRef(null);
   const scrollAreaRef = useRef(null);
 
-  // ESC key press to close the modal
-  useEffect(() => {
-    if (!openModal) return;
-    const onKey = (e) => {
-      if (e.key === "Escape") {
-        onClose?.();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [openModal, onClose]);
-
-  if (!openModal) return null;
-
   return (
-    <div className="tdm-portal" aria-hidden={false}>
-      <div className="tdm-overlay" onClick={onClose} />
-      <section
-        className={"tdm-dialog"}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="tdm-title"
-        onClick={(e) => e.stopPropagation()}
-        tabIndex={-1}
-        ref={dialogRef}
-      >
-        {/* Header */}
-        <header className="tdm-header">
-          <div className="tdm-header-left">
-            <h2 id="tdm-title" className="tdm-title">
-              {modalData?.customer || "AVF"} - {modalData?.code || "TS-6465"}
-            </h2>
-          </div>
-          <div className="tdm-header-right">
-            <button
-              className="tdm-icon-btn"
-              aria-label="Close"
-              onClick={onClose}
-              title="Close"
-            >
-              {/* close icon */}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  d="M18 6L6 18M6 6l12 12"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </header>
-
-        {/* Scrollable content */}
+    <ModalBody>
+      <ModalContent>
         <div className="tdm-content" ref={scrollAreaRef}>
           {/* Key fields */}
           <div className="tdm-row">
@@ -140,7 +88,15 @@ export default function TaskModal({ openModal, onClose, modalData }) {
             )}
           </div>
         </div>
-      </section>
-    </div>
+      </ModalContent>
+      <ModalFooter className="gap-4">
+        <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
+          Cancel
+        </button>
+        <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+          Save
+        </button>
+      </ModalFooter>
+    </ModalBody>
   );
 }

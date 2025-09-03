@@ -3,10 +3,9 @@ import Dashboard from "../componenets/Dashboard/Dashboard";
 import Navbar from "../componenets/Dashboard/Navbar/Navbar";
 import Sidebar from "../componenets/Dashboard/Sidebar/Sidebar";
 import "../Styles/Common.css";
-
 export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true); // sidebar open state
-  const [theme, setTheme] = useState("light"); // theme state
+  const [theme, setTheme] = useState("dark"); // theme state
 
   // toogle theme start
   useEffect(() => {
@@ -35,7 +34,7 @@ export default function DashboardPage() {
           onToggleTheme={toggleTheme}
         />
         <main className="dash-content">
-        <Dashboard />
+          <Dashboard />
         </main>
       </div>
     </div>

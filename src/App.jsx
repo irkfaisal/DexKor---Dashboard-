@@ -1,9 +1,12 @@
+import { GridBackground } from "./componenets/Aceternity/GridBackground";
 import DashboardLayout from "./Layout/DashboardLayout";
 
 function App() {
   return (
     <>
-      <DashboardLayout />
+      <GridBackground>
+        <DashboardLayout />
+      </GridBackground>
     </>
   );
 }
